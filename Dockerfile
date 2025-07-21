@@ -1,4 +1,3 @@
-
 FROM python:3.7-stretch
 
 ####
@@ -17,6 +16,9 @@ COPY . ./
 ####
 
 RUN pip install -r requirements.txt
+
+ARG NSW_API_KEY
+ENV NSW_API_KEY=${NSW_API_KEY}
 
 EXPOSE 5000
 ####
