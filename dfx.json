@@ -1,0 +1,10 @@
+{
+  "canisters": {
+    "hello": {
+      "main": "src/hello/main.mo",
+      "type": "motoko",
+      "build": "vessel sources"
+    }
+  },
+  "version": 1
+} 
