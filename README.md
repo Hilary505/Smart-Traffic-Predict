@@ -35,12 +35,12 @@ A real-time system for predicting vehicle traffic congestion on urban motorways 
 ---
 
 ## 🛠️ Hackathon Work
-- [x] Built and integrated real-time prediction API
-- [x] Added region-based search and dropdown UI
-- [x] Dockerized the application
-- [x] Added deployment scripts for AWS EKS and GCP
-- [x] Improved documentation and setup instructions
-- [x] Added/updated tests in `/tests/`
+- Built and integrated real-time prediction API
+- Added region-based search and dropdown UI
+- Dockerized the application
+- Added deployment scripts for AWS EKS and GCP
+- Improved documentation and setup instructions
+- Added/updated tests in `/tests/`
 
 
 ## Installation
@@ -118,28 +118,33 @@ The Internet Computer Protocol (ICP) provides a decentralized, tamper-proof, and
 
 ### Prerequisites
 - [DFINITY SDK (dfx)](https://internetcomputer.org/docs/current/developer-docs/quickstart/hello10mins)
-- [Vessel](https://github.com/dfinity/vessel) (Motoko package manager)
 
-#### Installing Vessel (no sudo required)
+#### install dfx
+
 ```bash
-mkdir -p ~/bin
-curl -sL https://github.com/dfinity/vessel/releases/latest/download/vessel-linux64 -o ~/bin/vessel
-chmod +x ~/bin/vessel
-echo 'export PATH="$HOME/bin:$PATH"' >> ~/.profile
-source ~/.profile
+$ sh -ci "$(curl -fsSL https://sdk.dfinity.org/install.sh)"
+
+```
+
+```bash
+$ source ~/.profile
+```
+
+```bash
+$ dfx --version
 ```
 
 ### Deploying the Canister
 1. Start the local replica:
-   ```bash
-   dfx start --background
+```bash
+  $ dfx start --background
    ```
 2. Deploy the canister:
-   ```bash
-   dfx deploy
+```bash
+  $ dfx deploy
    ```
 3. Call the canister:
-   ```bash
-   dfx canister call hello greet '("Hackathon Judge")'
+```bash
+$ dfx canister call hello greet '("Hackathon Judge")'
    # Returns: "Hello, Hackathon Judge! Welcome to Smart Traffic Predict."
-   ```
+```
