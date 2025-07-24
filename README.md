@@ -22,19 +22,28 @@ A real-time system for predicting vehicle traffic congestion on urban motorways 
 
 ---
 
-## 🚀 Features
-- Real-time traffic image ingestion and prediction
-- Region-based search and filtering
-- User-friendly web interface
-- REST API for integration
-- Dockerized for easy deployment
-- Supports deployment to AWS EKS and GCP App Engine
-- Automated tests for core modules
-- ICP  for decentralised users
+🚀 Features
+
+- 🔄 Real-time traffic image ingestion and classification
+
+- 🌍 Region-based filtering and search
+
+-💻 User-friendly web interface
+
+-🔌 REST API for external integration
+
+-🐳 Dockerized for portability
+
+-☁️ Supports AWS EKS and GCP App Engine deployments
+
+-✅ Unit and integration tests for core modules
+
+-🔐 ICP backend for decentralized infrastructure
 
 ---
 
-## 🛠️ Hackathon Work
+🛠️ Hackathon Work Summary
+
 - Built and integrated real-time prediction API
 - Added region-based search and dropdown UI
 - Dockerized the application
@@ -42,8 +51,20 @@ A real-time system for predicting vehicle traffic congestion on urban motorways 
 - Improved documentation and setup instructions
 - Added/updated tests in `/tests/`
 
+📦 Requirements
 
-## Installation
+-below are the requirements dependencies for the above project
+Flask==2.0.2
+urllib3==1.24.3
+Werkzeug>=0.7
+WTForms==2.1 
+numpy>=1.13.3
+tensorflow==2.8.0
+flask-wtf==1.0.0
+pytest>=6.0.0
+
+
+⚙️ Installation Guide
 
 ### 1. Clone and Setup
 ```bash
@@ -74,7 +95,7 @@ python run.py
 ### 4. Test Prediction
 ```bash
 python run.py test_image/Aut10_010.jpg
-# Output: high congestion (score = 0.70454)
+# Expected Output: high congestion (score = 0.70454)
 ```
 
 ### 5. Run Tests
@@ -88,19 +109,19 @@ PYTHONPATH=. pytest tests/
 ```bash
 docker build -t smart-traffic:latest .
 docker run --rm -p 80:5000 smart-traffic:latest
-# Open http://localhost:80 in your browser
+# visit  http://localhost:80 in your browser
 ```
 
 ---
 
 ## ☁️ Cloud Deployment
-### AWS EKS
+### ▶️ AWS EKS
 ```bash
 kubectl apply -f aws_eks/deployment.yaml
 # Access via http://localhost:8080/api/v1/namespaces/default/services/smart-traffic-service/proxy
 ```
 
-### GCP App Engine
+### ▶️ GCP App Engine
 ```bash
 gcloud app deploy
 ```
@@ -113,10 +134,10 @@ gcloud app deploy
 
 ## 🟦 ICP/dfx.json & Motoko Canister
 
-### Why ICP?
+### 🌐 Why Use ICP?
 The Internet Computer Protocol (ICP) provides a decentralized, tamper-proof, and scalable backend for smart traffic prediction. By deploying a Motoko canister, the project demonstrates how traffic data and logic can be made transparent, secure, and interoperable with other decentralized services.
 
-### Prerequisites
+### 🔧 Prerequisites
 - [DFINITY SDK (dfx)](https://internetcomputer.org/docs/current/developer-docs/quickstart/hello10mins)
 
 #### install dfx
@@ -134,7 +155,7 @@ $ source ~/.profile
 $ dfx --version
 ```
 
-### Deploying the Canister
+### 🚀 Deploying the Canister
 1. Start the local replica:
 ```bash
   $ dfx start --background
@@ -146,5 +167,5 @@ $ dfx --version
 3. Call the canister:
 ```bash
 $ dfx canister call hello greet '("Hackathon Judge")'
-   # Returns: "Hello, Hackathon Judge! Welcome to Smart Traffic Predict."
+   # Output: "Hello, Hackathon Judge! Welcome to Smart Traffic Predict."
 ```
