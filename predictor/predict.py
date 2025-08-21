@@ -30,14 +30,14 @@ def _load_model_and_labels():
     if _model_graph is None or _session is None or _label_lines is None:
         _model_graph = tf.Graph()
         with _model_graph.as_default():
-            with tf.gfile.GFile(MODEL_PATH, 'rb') as f:
-                graph_def = tf.GraphDef()
+            with tf.io.gfile.GFile(MODEL_PATH, 'rb') as f:
+                graph_def = tf.compat.v1.GraphDef()
                 graph_def.ParseFromString(f.read())
                 tf.import_graph_def(graph_def, name='')
         # Load labels
         _label_lines = [line.rstrip() for line in tf.io.gfile.GFile(LABEL_PATH)]
         # Create one session to be reused
-        _session = tf.Session(graph=_model_graph)
+        _session = tf.compat.v1.Session(graph=_model_graph)
 
 
 def tensorflow_pred(imageUrl):
